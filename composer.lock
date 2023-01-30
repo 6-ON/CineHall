@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8e3113b3f16d86b542c02433c7c14c0c",
+    "packages": [
+        {
+            "name": "6-on/hw-framework",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/6-ON/hw-framework.git",
+                "reference": "00f1ee2e68aa9a3c09ca5ed141ddd478fba39a08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/6-ON/hw-framework/zipball/00f1ee2e68aa9a3c09ca5ed141ddd478fba39a08",
+                "reference": "00f1ee2e68aa9a3c09ca5ed141ddd478fba39a08",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "sixon\\hwFramework\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "6-ON",
+                    "email": "aminhatim6@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/6-ON/hw-framework/issues",
+                "source": "https://github.com/6-ON/hw-framework/tree/v1.0.1"
+            },
+            "time": "2023-01-16T14:50:01+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

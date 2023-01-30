@@ -1,0 +1,17 @@
+{
+    "name": "yc/cine-hall-backend",
+    "autoload": {
+        "psr-4": {
+            "Yc\\CineHallBackend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "6-ON",
+            "email": "aminhatim6@gmail.com"
+        }
+    ],
+    "require": {
+        "6-on/hw-framework": "^1.0"
+    }
+}
