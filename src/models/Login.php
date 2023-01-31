@@ -7,6 +7,8 @@ use sixon\hwFramework\db\DbModel;
 class Login extends DbModel
 {
 
+    public $token;
+
     public static function tableName(): string
     {
         return 'user';
@@ -14,17 +16,17 @@ class Login extends DbModel
 
     public function attributes(): array
     {
-        return [];
+        return ['token'];
     }
 
     public static function primaryKey(): string
     {
-        return  'id';
+        return 'id';
     }
 
     public function rules(): array
     {
-        return [];
+        return ['token' => [self::RULE_REQUIRED]];
     }
 
     public function labels(): array
