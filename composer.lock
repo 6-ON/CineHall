@@ -8,17 +8,20 @@
     "packages": [
         {
             "name": "6-on/hw-framework",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/6-ON/hw-framework.git",
-                "reference": "00f1ee2e68aa9a3c09ca5ed141ddd478fba39a08"
+                "reference": "1637de9373a46dad08a88d70b8e8143a9103a0cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/6-ON/hw-framework/zipball/00f1ee2e68aa9a3c09ca5ed141ddd478fba39a08",
-                "reference": "00f1ee2e68aa9a3c09ca5ed141ddd478fba39a08",
+                "url": "https://api.github.com/repos/6-ON/hw-framework/zipball/1637de9373a46dad08a88d70b8e8143a9103a0cf",
+                "reference": "1637de9373a46dad08a88d70b8e8143a9103a0cf",
                 "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*"
             },
             "type": "library",
             "autoload": {
@@ -35,9 +38,9 @@
             ],
             "support": {
                 "issues": "https://github.com/6-ON/hw-framework/issues",
-                "source": "https://github.com/6-ON/hw-framework/tree/v1.0.1"
+                "source": "https://github.com/6-ON/hw-framework/tree/v1.0.2"
             },
-            "time": "2023-01-16T14:50:01+00:00"
+            "time": "2023-01-31T11:23:46+00:00"
         },
         {
             "name": "graham-campbell/result-type",
