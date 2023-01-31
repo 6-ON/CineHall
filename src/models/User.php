@@ -20,7 +20,7 @@ class User extends UserModel
 
     public function attributes(): array
     {
-        return ['firstName', 'lastName', 'token', 'image'];
+        return ['email', 'firstName', 'lastName', 'token', 'image'];
     }
 
     public static function primaryKey(): string
@@ -30,7 +30,13 @@ class User extends UserModel
 
     public function rules(): array
     {
-        return ['firstName', 'lastName', 'token', 'image'];
+        return [
+            'email' => [self::RULE_REQUIRED,self::RULE_EMAIL],
+            'firstName' => [self::RULE_REQUIRED],
+            'lastName' => [self::RULE_REQUIRED],
+            'token' => [self::RULE_REQUIRED],
+            'image' => [self::RULE_REQUIRED]
+        ];
     }
 
     public function labels(): array
