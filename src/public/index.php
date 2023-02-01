@@ -19,10 +19,19 @@ $config = [
 $app = new Application($ROOT_DIR,$config);
 
 
-$app->router->put('/users/create',[ApiController::class,'test']);
+$app->router->put('/users/create',[ApiController::class,'register']);
 
+$app->router->post('/users/login',[ApiController::class,'login']);
 
+$app->router->post('/users/logout',[ApiController::class,'logout']);
 
+$app->router->put('/seats/reserve',[ApiController::class,'reserve']);
+
+$app->router->delete('/seats/cancel',[ApiController::class,'cancelReserve']);
+
+$app->router->get('/seats/get',[ApiController::class,'getSeats']);
+
+$app->router->get('/users/get-info',[ApiController::class,'getUserInfo']);
 
 
 
