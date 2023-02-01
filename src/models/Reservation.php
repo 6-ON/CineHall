@@ -2,6 +2,7 @@
 
 namespace Yc\CineHallBackend\models;
 
+use sixon\hwFramework\Application;
 use sixon\hwFramework\db\DbModel;
 
 class Reservation extends DbModel
@@ -38,10 +39,25 @@ class Reservation extends DbModel
     }
     public function validate(): bool
     {
+        //execute Model validation
+        parent::validate();
+
+        // add some custom validations
         if(intval($this->numSeat) > 50 || intval($this->numSeat) < 1 ){
             $this->addError('numSeat','seat out of Range');
         }
-        return parent::validate();
+
+        $tableName = self::tableName();
+        $stmt = Application::$app->db->prepare("SELECT * FROM $tableName WHERE idFilm  = :idFilm AND numSeat  = :numSeat");
+        $stmt->bindValue(':idFilm', $this->idFilm);
+        $stmt->bindValue(':numSeat', $this->numSeat);
+        $stmt->execute();
+        $record = $stmt->fetchObject();
+        if ($record) {
+            $this->addError('numSeat', 'this Seat is Already Reserved !');
+        }
+        return empty($this->errors);
+
     }
 
     public function labels(): array
