@@ -16,7 +16,23 @@ class ApiController extends Controller
         $response->setContentType(Response::TYPE_JSON);
     }
 
+    public function reserve(Request $request, Response $response)
+    {
+        $reservation = new Reservation();
 
+        try {
+            if ($request->isPut()) {
+                $reservation->loadData($request->getBody());
+                if ($reservation->validate() && $reservation->save()) {
+                    return $this->makeJsonMessage('success', 'Your Seat is reserved Successfully !');
+                } else {
+                    return $this->makeJsonMessage('error', 'The Seat did not reserved !');
+                }
+            }
+        } catch (\Exception) {
+            return $this->makeJsonMessage('error', 'There was an error while Reserving !');
+        }
+    }
 
     public function register(Request $request, Response $response)
     {
