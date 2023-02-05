@@ -86,12 +86,12 @@ class ApiController extends Controller
 
                 if (!preg_match('/Bearer\s(\S+)/', $auth, $matches)) {
                     $response->setStatusCode(401);
-                    return $this->makeJsonMessage('error', 'Token not Found !');
+                    return $this->makeJsonMessage('error', ['message' => 'Token not Found !']);
                 }
                 $auth_token = $matches[1];
                 if (!$auth_token) {
                     $response->setStatusCode(401);
-                    return $this->makeJsonMessage('error', 'Token is not valid !');
+                    return $this->makeJsonMessage('error', ['message' => 'Token is not valid !']);
                 }
 
                 $token = JWT::decode($auth_token, new Key($_ENV['JWT_SECRET'], 'HS512'));
@@ -100,7 +100,7 @@ class ApiController extends Controller
                 if ($token->iss !== $_ENV['JWT_DOMAIN'] ||
                     $token->nbf > $now->getTimestamp() || !property_exists($token, 'id')) {
                     $response->setStatusCode(401);
-                    return $this->makeJsonMessage('error', 'Unauthorized !');
+                    return $this->makeJsonMessage('error', ['message' => 'Unauthorized !']);
                 }
 
                 $userId = $token->id;
@@ -118,7 +118,8 @@ class ApiController extends Controller
 
             }
         } catch (\Exception $e) {
-            return $this->makeJsonMessage('error', ['details' => $e->getMessage()]);
+            $response->setStatusCode(401);
+            return $this->makeJsonMessage('error', ['message'=>'Invalid Token','details' => $e->getMessage()]);
 
         }
     }
