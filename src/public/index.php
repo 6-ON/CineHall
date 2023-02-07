@@ -4,6 +4,7 @@ require_once $ROOT_DIR . '/vendor/autoload.php';
 
 use sixon\hwFramework\Application;
 use Yc\CineHallBackend\controllers\ApiController;
+use Yc\CineHallBackend\controllers\CloudinaryController;
 
 
 $dotenv = Dotenv\Dotenv::createImmutable($ROOT_DIR);
@@ -38,6 +39,8 @@ $app->router->delete('/seats/cancel', [ApiController::class, 'cancelReserve']);
 $app->router->get('/seats/get', [ApiController::class, 'getSeats']);
 
 $app->router->get('/users/get-info', [ApiController::class, 'getUserInfo']);
+
+$app->router->get('/upload/get-sig', [CloudinaryController::class, 'getCloudinarySignature']);
 
 if($app->request->method() === 'options'){
     http_response_code(200);
